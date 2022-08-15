@@ -23,7 +23,7 @@ Email: admin@example.com
 Password: admin
 ```
 
-### About tools & libraries
+### About Tools & Libraries
 
 List of main tools & libraries used for building this application. There are few small helper libraries which are not really worth to mention. The login is mocked, no library used for that.
 
