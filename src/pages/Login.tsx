@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { Container, Box, Typography, TextField, Button, Alert, Grow } from '@mui/material'
 import { loginMock } from '@/api/login'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Navigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
+import useAuthCookie from '@/hooks/useAuthCookie'
 
 const Login = () => {
   const navigate = useNavigate()
   const [error, setError] = useState('')
+  const { authCookie } = useAuthCookie()
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -27,6 +29,8 @@ const Login = () => {
       setError(error as string)
     }
   }
+
+  if (authCookie) return <Navigate to='/resources' />
 
   return (
     <Container component='main' maxWidth='xs'>
